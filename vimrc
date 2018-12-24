@@ -9,8 +9,15 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+" syntax
+Plug 'pangloss/vim-javascript'
 Plug 'moll/vim-node'
 Plug 'digitaltoad/vim-pug'
+
+Plug 'vim-syntastic/syntastic'
+
+" fancy stuff
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 
@@ -32,8 +39,23 @@ let g:netrw_liststyle=3     " tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
+" syntastic options
+" defaults from git repo
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" my config of syntastic
+let g:syntastic_javascript_checkers = ['jshint']
+
 " My defaults
 set number
+set ruler
 set tabstop=4 shiftwidth=4
 set backspace=indent,eol,start
 
@@ -43,7 +65,7 @@ set noswapfile
 
 " the unseen
 set list
-set listchars=tab:>.,trail:·,eol:¬
+set listchars=tab:>\ ,trail:·,eol:¬
 
 " search
 set hlsearch
@@ -61,3 +83,5 @@ set foldmethod=indent
 set foldnestmax=3
 set foldenable
 
+" Colorscheme
+colorscheme elflord

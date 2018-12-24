@@ -5,7 +5,7 @@ Just a collection of configuration files I use, and some information about them.
 
 
 List:
-- vim: vimrc
+- vim: *vimrc*, *vim*
 	+ Uses [vim-plug][vim-plug]
 	+ minimalistic config
 	+ has config files in ftplugin folder
@@ -14,11 +14,15 @@ List:
 	+ Researching [Learn Vimscript the Hard Way][lvsthw]
 	+ Took some tips from many people, but really liked [rdegges setup][rdegges]
 
-- tmux: tmux.conf
+- tmux: *tmux.conf*
 	+ Just a tmux.conf. I learned just the basics on the book 
 	+ Inspired by a really nice book
 	+ [tmux: Productive Mouse-Free Development][tmux-book]
-	+ Under construction
+	+ **Under construction**
+
+- setup.sh:
+	- simple shell script with commands to setup all the configurations above.
+	- copies relevant files, and runs install in vim
 
 
 
