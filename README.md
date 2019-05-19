@@ -10,19 +10,18 @@ List:
 	+ minimalistic config
 	+ has config files in ftplugin folder
 	+ Inspired by a really nice video
-	+ [How to do 90% of What Plugins Do(With Just Vim)][no-plugin-video]
+		* [How to do 90% of What Plugins Do(With Just Vim)][no-plugin-video]
 	+ Researching [Learn Vimscript the Hard Way][lvsthw]
 	+ Took some tips from many people, but really liked [rdegges setup][rdegges]
+	+ Now based in XDG Base Directory Specification
 
 - tmux: *tmux.conf*
 	+ Just a tmux.conf. I learned just the basics on the book 
 	+ Inspired by a really nice book
 	+ [tmux: Productive Mouse-Free Development][tmux-book]
+	+ So far, simply copy tmux.conf to $HOME/.tmux.conf
 	+ **Under construction**
 
-- setup.sh:
-	- simple shell script with commands to setup all the configurations above.
-	- copies relevant files, and runs install in vim
 
 
 

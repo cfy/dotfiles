@@ -1,0 +1,82 @@
+" carlos vim config
+
+" no compatible
+set nocp
+
+" enable syntax and plugins
+syntax enable
+filetype plugin on
+
+" xdg stuff
+set undodir=$XDG_CACHE_HOME/vim/undo
+set directory=$XDG_CACHE_HOME/vim/swap
+set backupdir=$XDG_CACHE_HOME/vim/backup
+set viminfo+='1000,n$XDG_CACHE_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+
+" plugins
+
+" Bootstrap the plugin manager
+if empty(glob("$XDG_CONFIG_HOME/vim/autoload/plug.vim"))
+  silent !curl -fLo $XDG_CONFIG_HOME/vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync
+endif
+
+call plug#begin("$XDG_CONFIG_HOME/vim/plugged")
+Plug 'editorconfig/editorconfig-vim'
+Plug 'elzr/vim-json'
+Plug 'godlygeek/tabular'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'parkr/vim-jekyll'
+Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+call plug#end()
+
+
+let g:limelight_conceal_ctermfg = 'gray'
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+" my config
+
+set nu ruler ls=2 stal=2
+set tw=78 wrapscan so=20 cc=79
+set ts=4 sw=4 si
+set backspace=indent,eol,start
+set ar aw
+set list lcs=tab:>\ ,trail:·,eol:¬
+set hls is ic scs
+set fen fdm=syntax
+
+
+
+"
+" video inspired configs
+" https://www.youtube.com/watch?v=XA2WjJbmmoM
+"
+
+" search down into subfolders
+set path+=**
+
+" menu completion
+set wmnu
+
+" ctags
+command! MakeTags !ctags -R .
+
+" netrw config
+let g:netrw_banner=0
+let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+
+"
+" end of video
+"
+
